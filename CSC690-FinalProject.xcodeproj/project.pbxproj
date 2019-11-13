@@ -16,6 +16,7 @@
 		2B3EC2AA237BC89700E0C37C /* CSC690_FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3EC2A9237BC89700E0C37C /* CSC690_FinalProjectTests.swift */; };
 		2B3EC2B5237BC89800E0C37C /* CSC690_FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3EC2B4237BC89800E0C37C /* CSC690_FinalProjectUITests.swift */; };
 		2B3EC2C3237BCBC100E0C37C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2B3EC2C2237BCBC000E0C37C /* README.md */; };
+		2B3EC2C6237BCD7C00E0C37C /* put wire-frames here.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B3EC2C5237BCD7C00E0C37C /* put wire-frames here.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2B3EC2B4237BC89800E0C37C /* CSC690_FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSC690_FinalProjectUITests.swift; sourceTree = "<group>"; };
 		2B3EC2B6237BC89800E0C37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B3EC2C2237BCBC000E0C37C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2B3EC2C5237BCD7C00E0C37C /* put wire-frames here.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "put wire-frames here.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		2B3EC2C4237BCCC000E0C37C /* Wire-Frames */ = {
 			isa = PBXGroup;
 			children = (
+				2B3EC2C5237BCD7C00E0C37C /* put wire-frames here.txt */,
 			);
 			path = "Wire-Frames";
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				2B3EC29F237BC89700E0C37C /* LaunchScreen.storyboard in Resources */,
 				2B3EC29C237BC89700E0C37C /* Assets.xcassets in Resources */,
+				2B3EC2C6237BCD7C00E0C37C /* put wire-frames here.txt in Resources */,
 				2B3EC2C3237BCBC100E0C37C /* README.md in Resources */,
 				2B3EC29A237BC89600E0C37C /* Main.storyboard in Resources */,
 			);
