@@ -15,6 +15,7 @@
 		2B3EC29F237BC89700E0C37C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3EC29D237BC89700E0C37C /* LaunchScreen.storyboard */; };
 		2B3EC2AA237BC89700E0C37C /* CSC690_FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3EC2A9237BC89700E0C37C /* CSC690_FinalProjectTests.swift */; };
 		2B3EC2B5237BC89800E0C37C /* CSC690_FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3EC2B4237BC89800E0C37C /* CSC690_FinalProjectUITests.swift */; };
+		2B3EC2C3237BCBC100E0C37C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2B3EC2C2237BCBC000E0C37C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2B3EC2B0237BC89800E0C37C /* CSC690-FinalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CSC690-FinalProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3EC2B4237BC89800E0C37C /* CSC690_FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSC690_FinalProjectUITests.swift; sourceTree = "<group>"; };
 		2B3EC2B6237BC89800E0C37C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B3EC2C2237BCBC000E0C37C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				2B3EC2A8237BC89700E0C37C /* CSC690-FinalProjectTests */,
 				2B3EC2B3237BC89800E0C37C /* CSC690-FinalProjectUITests */,
 				2B3EC290237BC89600E0C37C /* Products */,
+				2B3EC2C2237BCBC000E0C37C /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +237,7 @@
 			files = (
 				2B3EC29F237BC89700E0C37C /* LaunchScreen.storyboard in Resources */,
 				2B3EC29C237BC89700E0C37C /* Assets.xcassets in Resources */,
+				2B3EC2C3237BCBC100E0C37C /* README.md in Resources */,
 				2B3EC29A237BC89600E0C37C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
