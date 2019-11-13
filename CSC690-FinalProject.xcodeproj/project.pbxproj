@@ -81,6 +81,7 @@
 		2B3EC286237BC89600E0C37C = {
 			isa = PBXGroup;
 			children = (
+				2B3EC2C4237BCCC000E0C37C /* Wire-Frames */,
 				2B3EC291237BC89600E0C37C /* CSC690-FinalProject */,
 				2B3EC2A8237BC89700E0C37C /* CSC690-FinalProjectTests */,
 				2B3EC2B3237BC89800E0C37C /* CSC690-FinalProjectUITests */,
@@ -129,6 +130,13 @@
 				2B3EC2B6237BC89800E0C37C /* Info.plist */,
 			);
 			path = "CSC690-FinalProjectUITests";
+			sourceTree = "<group>";
+		};
+		2B3EC2C4237BCCC000E0C37C /* Wire-Frames */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Wire-Frames";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
