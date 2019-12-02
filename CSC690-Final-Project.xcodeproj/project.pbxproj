@@ -17,8 +17,8 @@
 		2B04E7032393B71D007EAAF9 /* CSC690_Final_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B04E7022393B71D007EAAF9 /* CSC690_Final_ProjectUITests.swift */; };
 		2B04E7202393BCBF007EAAF9 /* Wire-Frames in Resources */ = {isa = PBXBuildFile; fileRef = 2B04E71E2393BCBE007EAAF9 /* Wire-Frames */; };
 		2B04E7212393BCBF007EAAF9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2B04E71F2393BCBE007EAAF9 /* README.md */; };
-		2B27D3CE2394CBFA00472F54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B27D3CD2394CBFA00472F54 /* GoogleService-Info.plist */; };
-		2B8EE5342393BE9E00C6908A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2B8EE5332393BE9E00C6908A /* .gitignore */; };
+		2B27D3D22395001E00472F54 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2B27D3D12395001E00472F54 /* .gitignore */; };
+		2B27D3D42395002C00472F54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B27D3D32395002C00472F54 /* GoogleService-Info.plist */; };
 		2B8EE5362394744000C6908A /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8EE5352394744000C6908A /* ChatController.swift */; };
 		5EECA773392EA22EB73094D5 /* Pods_CSC690_Final_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C2DE89C552444FA78882AE /* Pods_CSC690_Final_Project.framework */; };
 		89131846C24821049BA4E4AA /* Pods_CSC690_Final_Project_CSC690_Final_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F705A6EB42015B93F47AEF /* Pods_CSC690_Final_Project_CSC690_Final_ProjectUITests.framework */; };
@@ -62,8 +62,8 @@
 		2B04E7042393B71D007EAAF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B04E71E2393BCBE007EAAF9 /* Wire-Frames */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Wire-Frames"; sourceTree = "<group>"; };
 		2B04E71F2393BCBE007EAAF9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2B27D3CD2394CBFA00472F54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2B8EE5332393BE9E00C6908A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2B27D3D12395001E00472F54 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2B27D3D32395002C00472F54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B8EE5352394744000C6908A /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		34068F94B6A5B770EB0A20A5 /* Pods-CSC690-Final-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSC690-Final-ProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-CSC690-Final-ProjectTests/Pods-CSC690-Final-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A9CC3D7930CB7B76EC28FE4 /* Pods_CSC690_Final_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSC690_Final_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,8 +109,8 @@
 				2B04E7012393B71D007EAAF9 /* CSC690-Final-ProjectUITests */,
 				2B04E6DE2393B71B007EAAF9 /* Products */,
 				2B04E71E2393BCBE007EAAF9 /* Wire-Frames */,
-				2B8EE5332393BE9E00C6908A /* .gitignore */,
 				2B04E71F2393BCBE007EAAF9 /* README.md */,
+				2B27D3D12395001E00472F54 /* .gitignore */,
 				B28E2708D3DAB50FC2365D71 /* Pods */,
 				7491F3AE39036D1D2AAF5DC7 /* Frameworks */,
 			);
@@ -134,7 +134,7 @@
 				2B04E6E42393B71B007EAAF9 /* ContentView.swift */,
 				2B04E6E62393B71D007EAAF9 /* Assets.xcassets */,
 				2B04E6EB2393B71D007EAAF9 /* LaunchScreen.storyboard */,
-				2B27D3CD2394CBFA00472F54 /* GoogleService-Info.plist */,
+				2B27D3D32395002C00472F54 /* GoogleService-Info.plist */,
 				2B04E6EE2393B71D007EAAF9 /* Info.plist */,
 				2B04E6E82393B71D007EAAF9 /* Preview Content */,
 				2B8EE5352394744000C6908A /* ChatController.swift */,
@@ -301,12 +301,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B04E6ED2393B71D007EAAF9 /* LaunchScreen.storyboard in Resources */,
+				2B27D3D42395002C00472F54 /* GoogleService-Info.plist in Resources */,
+				2B27D3D22395001E00472F54 /* .gitignore in Resources */,
 				2B04E7202393BCBF007EAAF9 /* Wire-Frames in Resources */,
 				2B04E7212393BCBF007EAAF9 /* README.md in Resources */,
 				2B04E6EA2393B71D007EAAF9 /* Preview Assets.xcassets in Resources */,
-				2B8EE5342393BE9E00C6908A /* .gitignore in Resources */,
 				2B04E6E72393B71D007EAAF9 /* Assets.xcassets in Resources */,
-				2B27D3CE2394CBFA00472F54 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

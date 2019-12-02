@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>776090032015-0moa1ellr9etg8pf8nmeooqsne6dod65.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.776090032015-0moa1ellr9etg8pf8nmeooqsne6dod65</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCiNA7djLNJ5_-DMycGiwgwDNWF2z5WtdU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>776090032015</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Johnson-Wong.CSC690-Final-Project</string>
+	<key>PROJECT_ID</key>
+	<string>csc690-final-project</string>
+	<key>STORAGE_BUCKET</key>
+	<string>csc690-final-project.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:776090032015:ios:5099ada023296a354e1dfa</string>
+	<key>DATABASE_URL</key>
+	<string>https://csc690-final-project.firebaseio.com</string>
+</dict>
+</plist>
