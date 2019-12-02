@@ -1,0 +1,6 @@
+framework module Pods_CSC690_Final_Project_CSC690_Final_ProjectUITests {
+  umbrella header "Pods-CSC690-Final-Project-CSC690-Final-ProjectUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -5,41 +5,36 @@
 //  Created by Johnson Wong on 12/1/19.
 //  Copyright © 2019 Johnson Wong. All rights reserved.
 //
-
 import SwiftUI
-
-// Create a structure that will represent each message in chat
-struct ChatMessage: Hashable {
-    var message: String
-    var avatar: String
-    var color: Color
-    // isMe will be true if We sent the message
-    var isMe: Bool = false
-}
 
 // ChatRow will be a view similar to a Cell in standard Swift
 struct ChatRow: View {
     // We will need to access and represent the chatMessages here
     var chatMessage: ChatMessage
     
+    var currentUser = ""
+    
     // Body - is the body of the view
     var body: some View {
+        
         // HStack - is a horizontal stack. We let the SwiftUI know that we need to place
         // all the following contents horizontally one after another
         Group {
-            if !chatMessage.isMe {
+            
+            // Check if current user sent the message
+            if chatMessage.username != currentUser {
                 HStack {
                     Group {
                         // Show avatar of the user and their message
-                        Text(chatMessage.avatar)
+                        Text((chatMessage.username).prefix(1))
                             .foregroundColor(Color.white)
                             .padding(10)
                             .background(Circle().fill(Color.black))
-                        Text(chatMessage.message)
+                        Text(chatMessage.msg)
                             .bold()
                             .foregroundColor(Color.white)
                             .padding(10)
-                            .background(chatMessage.color)
+                            .background(Color.gray)
                             .cornerRadius(10)
                     }
                 }
@@ -48,13 +43,13 @@ struct ChatRow: View {
                 HStack {
                     Group {
                         Spacer()
-                        Text(chatMessage.message)
+                        Text(chatMessage.msg)
                             .bold()
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.white)
                             .padding(10)
-                            .background(chatMessage.color)
+                            .background(Color.blue)
                             .cornerRadius(10)
-                        Text(chatMessage.avatar)
+                        Text((chatMessage.username).prefix(1))
                             .foregroundColor(Color.white)
                             .padding(10)
                             .background(Circle().fill(Color.black))
@@ -93,7 +88,7 @@ final class KeyboardResponder: ObservableObject {
 
 struct ContentView: View {
     
-   @State var name = ""
+    @State var username = ""
     
     var body: some View {
         
@@ -103,19 +98,23 @@ struct ContentView: View {
                 
                 Color.pink
                 
+                Image(systemName: "person.3.fill").resizable().frame(width: 200, height: 100).padding(.bottom, 470)
+                
+                Text("Mr. Pink's Anonymous Chat").font(.custom("Georgia", size: 25)).padding(.bottom, 320)
+                
                 VStack {
-                    
+
                     Image(systemName: "person.circle.fill").resizable().frame(width: 60, height: 60).padding(.top, 12)
-                    TextField("Name", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                    TextField("Enter a random name", text: $username).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
                     
-                    NavigationLink(destination: MessagePage()) {
-                        
+                    NavigationLink(destination: MessagePage(username: self.username)) {
+
                         HStack {
-                          
+
                             Text("Join")
                             Image(systemName: "arrow.right.circle.fill").resizable().frame(width: 20, height: 20)
                         }
-                        
+
                     }.frame(width: 100, height: 54)
                         .background(Color.pink)
                         .foregroundColor(.white)
@@ -133,58 +132,58 @@ struct ContentView: View {
 
 struct MessagePage: View {
     
+    var username = ""
     // @State here is necessary to make the composedMessage variable accessible from different views
-       @State var composedMessage: String = ""
-       @EnvironmentObject var chatController: ChatController
-       @ObservedObject private var keyboard = KeyboardResponder()
-       
-       var body: some View {
-           // The VStack is a vertical stack where we place all our substacks like the List and the TextField
-           VStack {
-               // Use List to create any list in SwiftUI
-               List {
-                   Section(header: Text("Person A")) {
-                       // Iterate over messages
-                       ForEach(chatController.messages, id: \.self) { msg in
-                           ChatRow(chatMessage: msg)
-                       }
-                   }
-               }
-                   // Remove seperator lines in List
-                   .onAppear { UITableView.appearance().separatorStyle = .none }
-                   .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
-               
-               // TextField are aligned with the Send Button in the same line so we put them in HStack
-               HStack {
-                   // this textField generates the value for the composedMessage @State var
-                   TextField("Message", text: $composedMessage).frame(minHeight: CGFloat(40))
-                       .textFieldStyle(RoundedBorderTextFieldStyle())
-                   // the button triggers the sendMessage() function written in the end of current View
-                   Button(action: sendMessage) {
-                       //                    Text("Send")
-                       //                        .foregroundColor(Color.white)
-                       //                        .padding(10)
-                       //                        .background(Color.green)
-                       //                        .cornerRadius(10)
-                       Image(systemName: "arrow.up.circle.fill").resizable().frame(width: 30, height: 30)
-                   }
-               }.frame(minHeight: CGFloat(50)).padding()
-               // that's the height of the HStack
-           }
-           .padding(.bottom, keyboard.currentHeight)
-           .edgesIgnoringSafeArea(.bottom)
-           .animation(.easeOut(duration: 0.16))
-       }
-       
-       func sendMessage() {
-           // Only send message when input field is not empty
-           if composedMessage != "" {
-               chatController.sendMessage(ChatMessage(message: composedMessage, avatar: "B", color: .blue, isMe: true))
-               
-               // Clear input field
-               composedMessage = ""
-           }
-       }
+    @State var composedMessage: String = ""
+    @EnvironmentObject var chatController: ChatController
+    @ObservedObject private var keyboard = KeyboardResponder()
+    
+    var body: some View {
+        // The VStack is a vertical stack where we place all our substacks like the List and the TextField
+        VStack {
+            // Use List to create any list in SwiftUI
+            List {
+                // Iterate over messages
+                ForEach(chatController.messages, id: \.self) { msg in
+                    ChatRow(chatMessage: msg, currentUser: self.username)
+                }
+            }
+                // Remove seperator lines in List
+                .onAppear { UITableView.appearance().separatorStyle = .none }
+                .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
+                .navigationBarTitle("Chat", displayMode: .inline)
+            
+            // TextField are aligned with the Send Button in the same line so we put them in HStack
+            HStack {
+                // this textField generates the value for the composedMessage @State var
+                TextField("Message", text: $composedMessage).frame(minHeight: CGFloat(40))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                // the button triggers the sendMessage() function written in the end of current View
+                Button(action: sendMessage) {
+                    //                    Text("Send")
+                    //                        .foregroundColor(Color.white)
+                    //                        .padding(10)
+                    //                        .background(Color.green)
+                    //                        .cornerRadius(10)
+                    Image(systemName: "arrow.up.circle.fill").resizable().frame(width: 30, height: 30)
+                }
+            }.frame(minHeight: CGFloat(50)).padding()
+            // that's the height of the HStack
+        }
+        .padding(.bottom, keyboard.currentHeight)
+        .edgesIgnoringSafeArea(.bottom)
+        .animation(.easeOut(duration: 0.16))
+    }
+    
+    func sendMessage() {
+        // Only send message when input field is not empty
+        if composedMessage != "" {
+            chatController.sendMessage(username: self.username, msg: self.composedMessage)
+            
+            // Clear input field
+            composedMessage = ""
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
