@@ -4,17 +4,14 @@
 * Steve Rentschler
 
 # Proposal
-For our final project, we are proposing to make a iOS chess game. We plan on using a cocoaPods library for the chess board and logic. We would integrate the back-end code that we made for our Online Multiplayer Chess Game project last semester, which contains sockets. We would need to add an interface and menus. Here are the features we plan on implementing:
+For our final project, we are proposing to make an iOS chat app where people can search for a topic they would like to talk about and chat with an anonymous person. When someone types in a subject, it will be matched up with someone who searched for the same subject and they can chat about it. Everyone using our app will be completely anonymous. We are going to assign names randomly based off of the movie Reservoir Dogs.
 
-Must have:
+Must Have:
 
-Playing chess with another opponent
-Being able to create and join a game
-Showing your stats of wins and loses
+Ability to chat with someone
+Everyone being anonymous
 
-Nice to have:
+Nice to Have:
 
-Ability to change board and chess pieces
-Integration of move history of the current game
-Chess rating system that rates players
-Messaging system
+Being able to search for a subject to talk about and create a chat room specific to that subject
+Group Chat functionality   
