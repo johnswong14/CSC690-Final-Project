@@ -17,7 +17,7 @@ class ChatController: ObservableObject {
     @Published var messages = [ChatMessage]()
     
     init() {
-        
+
         let db = Firestore.firestore()
         
         db.collection("messages").addSnapshotListener { (snap, err) in

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Johnson Wong. All rights reserved.
 //
 import SwiftUI
+import Foundation
+import UIKit
 
 // ChatRow will be a view similar to a Cell in standard Swift
 struct ChatRow: View {
@@ -13,7 +15,7 @@ struct ChatRow: View {
     var chatMessage: ChatMessage
     
     var currentUser = ""
-    
+
     // Body - is the body of the view
     var body: some View {
         
@@ -26,10 +28,11 @@ struct ChatRow: View {
                 HStack {
                     Group {
                         // Show avatar of the user and their message
-                        Text((chatMessage.username).prefix(1))
+                        Text((chatMessage.username))
                             .foregroundColor(Color.white)
                             .padding(10)
-                            .background(Circle().fill(Color.black))
+                            .background(Rectangle().fill(Color.pink))
+                            .cornerRadius(20)
                         Text(chatMessage.msg)
                             .bold()
                             .foregroundColor(Color.white)
@@ -49,10 +52,11 @@ struct ChatRow: View {
                             .padding(10)
                             .background(Color.blue)
                             .cornerRadius(10)
-                        Text((chatMessage.username).prefix(1))
+                        Text((chatMessage.username))
                             .foregroundColor(Color.white)
                             .padding(10)
-                            .background(Circle().fill(Color.black))
+                            .background(Rectangle().fill(Color.pink))
+                            .cornerRadius(20)
                     }
                 }
             }
@@ -87,8 +91,14 @@ final class KeyboardResponder: ObservableObject {
 }
 
 struct ContentView: View {
+
+    let names = ["Mr. Pink", "Mr. Brown", "Mr. Orange", "Mr. Blonde", "Mr. White"]
+    lazy var username = names.randomElement()!
     
-    @State var username = ""
+    func randomName() -> String {
+          var mutatableSelf = self
+          return mutatableSelf.username
+      }
     
     var body: some View {
         
@@ -98,32 +108,32 @@ struct ContentView: View {
                 
                 Color.pink
                 
-                Image(systemName: "person.3.fill").resizable().frame(width: 200, height: 100).padding(.bottom, 470)
+                Image(systemName: "person.3.fill").resizable().frame(width: 200, height: 100).padding(.bottom, 470).foregroundColor(Color.white)
                 
-                Text("Mr. Pink's Anonymous Chat").font(.custom("Georgia", size: 25)).padding(.bottom, 320)
+                Text("Mr. Pink's Anonymous Chat").font(.custom("Georgia", size: 25)).padding(.bottom, 320)    .foregroundColor(Color.white)
                 
                 VStack {
-
-                    Image(systemName: "person.circle.fill").resizable().frame(width: 60, height: 60).padding(.top, 12)
-                    TextField("Enter a random name", text: $username).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
                     
-                    NavigationLink(destination: MessagePage(username: self.username)) {
+                    Text("Click Join for a random name").font(.custom("", size: 20))
+                        .padding( 20)
+                        .foregroundColor(.pink)
+                    NavigationLink(destination: MessagePage(username: self.randomName())) {
 
                         HStack {
-
-                            Text("Join")
+                            Text("Join").font(.custom("", size: 20))
                             Image(systemName: "arrow.right.circle.fill").resizable().frame(width: 20, height: 20)
                         }
-
+                        
                     }.frame(width: 100, height: 54)
                         .background(Color.pink)
                         .foregroundColor(.white)
-                        .cornerRadius(27)
-                        .padding(.bottom, 15)
+                        .cornerRadius(25)
+                        .padding(.bottom, 20)
+                       
                 }
                 .background(Color.white)
                 .cornerRadius(20)
-                .padding()
+               
             }
             .edgesIgnoringSafeArea(.all)
         }
@@ -132,7 +142,14 @@ struct ContentView: View {
 
 struct MessagePage: View {
     
-    var username = ""
+    let names = ["Mr. Pink", "Mr. Brown", "Mr. Orange", "Mr. Blonde", "Mr. White"]
+    lazy var username = names.randomElement()!
+    
+    func randomName() -> String {
+          var mutatableSelf = self
+          return mutatableSelf.username
+      }
+   
     // @State here is necessary to make the composedMessage variable accessible from different views
     @State var composedMessage: String = ""
     @EnvironmentObject var chatController: ChatController
@@ -145,7 +162,7 @@ struct MessagePage: View {
             List {
                 // Iterate over messages
                 ForEach(chatController.messages, id: \.self) { msg in
-                    ChatRow(chatMessage: msg, currentUser: self.username)
+                    ChatRow(chatMessage: msg, currentUser: self.randomName())
                 }
             }
                 // Remove seperator lines in List
@@ -178,7 +195,7 @@ struct MessagePage: View {
     func sendMessage() {
         // Only send message when input field is not empty
         if composedMessage != "" {
-            chatController.sendMessage(username: self.username, msg: self.composedMessage)
+            chatController.sendMessage(username: self.randomName(), msg: self.composedMessage)
             
             // Clear input field
             composedMessage = ""
