@@ -2,12 +2,13 @@
 //  ContentView.swift
 //  CSC690-Final-Project
 //
-//  Created by Johnson Wong on 12/1/19.
+//  Created by Johnson Wong and Steve Rentschler on 12/1/19.
 //  Copyright © 2019 Johnson Wong. All rights reserved.
 //
 import SwiftUI
 import Foundation
 import UIKit
+
 
 // ChatRow will be a view similar to a Cell in standard Swift
 struct ChatRow: View {
@@ -28,17 +29,19 @@ struct ChatRow: View {
                 HStack {
                     Group {
                         // Show avatar of the user and their message
+                        Image(systemName: "person.circle").resizable().frame(width: 30, height: 30)
+                        .foregroundColor(Color.pink)
+                           
+                        VStack(alignment: .leading) {
                         Text((chatMessage.username))
-                            .foregroundColor(Color.white)
-                            .padding(10)
-                            .background(Rectangle().fill(Color.pink))
-                            .cornerRadius(20)
                         Text(chatMessage.msg)
                             .bold()
                             .foregroundColor(Color.white)
                             .padding(10)
                             .background(Color.gray)
                             .cornerRadius(10)
+                        
+                        }
                     }
                 }
             }
@@ -46,17 +49,18 @@ struct ChatRow: View {
                 HStack {
                     Group {
                         Spacer()
+                        VStack(alignment: .trailing) {
+                        Text((chatMessage.username))
                         Text(chatMessage.msg)
                             .bold()
                             .foregroundColor(Color.white)
                             .padding(10)
                             .background(Color.blue)
                             .cornerRadius(10)
-                        Text((chatMessage.username))
-                            .foregroundColor(Color.white)
-                            .padding(10)
-                            .background(Rectangle().fill(Color.pink))
-                            .cornerRadius(20)
+                        }
+                        Image(systemName: "person.circle").resizable().frame(width: 30, height: 30)
+                        .foregroundColor(Color.pink)
+                        
                     }
                 }
             }
@@ -92,9 +96,10 @@ final class KeyboardResponder: ObservableObject {
 
 struct ContentView: View {
 
+    // initalizes the five names to choose from
     let names = ["Mr. Pink", "Mr. Brown", "Mr. Orange", "Mr. Blonde", "Mr. White"]
     lazy var username = names.randomElement()!
-    
+    //randomly picks a name from names
     func randomName() -> String {
           var mutatableSelf = self
           return mutatableSelf.username
@@ -102,49 +107,44 @@ struct ContentView: View {
     
     var body: some View {
         
-        NavigationView {
-            
-            ZStack {
-                
-                Color.pink
-                
-                Image(systemName: "person.3.fill").resizable().frame(width: 200, height: 100).padding(.bottom, 470).foregroundColor(Color.white)
-                
-                Text("Mr. Pink's Anonymous Chat").font(.custom("Georgia", size: 25)).padding(.bottom, 320)    .foregroundColor(Color.white)
-                
-                VStack {
+              NavigationView {
                     
-                    Text("Click Join for a random name").font(.custom("", size: 20))
-                        .padding( 20)
-                        .foregroundColor(.pink)
-                    NavigationLink(destination: MessagePage(username: self.randomName())) {
-
-                        HStack {
-                            Text("Join").font(.custom("", size: 20))
-                            Image(systemName: "arrow.right.circle.fill").resizable().frame(width: 20, height: 20)
-                        }
+                    ZStack {
+                        Color.pink
+                        Image(systemName: "person.3").resizable().frame(width: 200, height: 100).padding(.bottom, 470).foregroundColor(Color.white)
                         
-                    }.frame(width: 100, height: 54)
-                        .background(Color.pink)
-                        .foregroundColor(.white)
-                        .cornerRadius(25)
-                        .padding(.bottom, 20)
-                       
+                        Text("Mr. Pink's Anonymous Chat").font(.custom("GillSans-UltraBold", size: 18)).padding(.bottom, 320)    .foregroundColor(Color.white)
+                        
+                        VStack {
+                            Text("Click Join to enter the chat").font(.custom("", size: 20))
+                                .padding( 20)
+                                .foregroundColor(.pink)
+                            NavigationLink(destination: MessagePage(username: self.randomName())) {
+
+                                HStack {
+                                    Text("Join").font(.custom("", size: 20))
+                                    Image(systemName: "arrow.right.circle.fill").resizable().frame(width: 20, height: 20)
+                                }
+                            }.frame(width: 100, height: 54)
+                                .background(Color.pink)
+                                .foregroundColor(.white)
+                                .cornerRadius(25)
+                                .padding(.bottom, 20)
+                        }
+                        .background(Color.white)
+                        .cornerRadius(20)
+                    }
+                    .edgesIgnoringSafeArea(.all)
                 }
-                .background(Color.white)
-                .cornerRadius(20)
-               
             }
-            .edgesIgnoringSafeArea(.all)
         }
-    }
-}
 
 struct MessagePage: View {
     
+    // initalizes the five names to choose from
     let names = ["Mr. Pink", "Mr. Brown", "Mr. Orange", "Mr. Blonde", "Mr. White"]
     lazy var username = names.randomElement()!
-    
+    //randomly picks a name from names
     func randomName() -> String {
           var mutatableSelf = self
           return mutatableSelf.username
