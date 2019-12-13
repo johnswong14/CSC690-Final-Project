@@ -20,7 +20,9 @@ class ChatController: ObservableObject {
 
         let db = Firestore.firestore()
         
-        db.collection("messages").addSnapshotListener { (snap, err) in
+        db.collection("messages")
+            .order(by: "created")
+            .addSnapshotListener { (snap, err) in
             
             if err != nil {
                 
@@ -48,7 +50,7 @@ class ChatController: ObservableObject {
         
         let db = Firestore.firestore()
         
-        db.collection("messages").addDocument(data: ["username": username, "msg": msg]) { (err) in
+        db.collection("messages").addDocument(data: ["username": username, "msg": msg, "created": FieldValue.serverTimestamp()]) { (err) in
             
             if err != nil {
                 
